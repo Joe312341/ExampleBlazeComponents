@@ -1,0 +1,15 @@
+<template name="homePageTmpl">
+  <div class="row">
+    <div class="col-md-4">
+      {{> listTableTmpl state=instance.authorState }}
+    </div>
+    <div class="col-md-8">
+      {{> listTableTmpl state=instance.bookState reactiveId=(getAuthorId)}}
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12">
+      Overview
+    </div>
+  </div>
+</template>
