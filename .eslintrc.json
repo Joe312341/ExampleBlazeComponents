@@ -1,0 +1,42 @@
+{
+  "parserOptions": {
+    "ecmaVersion": 6,
+    "sourceType": "module",
+    "ecmaFeatures": {
+          "modules": true
+      }
+  },
+  "env": {
+    "es6": true,
+    "browser": true,
+    "node": true,
+    "meteor": true
+  },
+  "plugins": [
+    "meteor"
+  ],
+  "extends": [
+    "eslint:recommended",
+    "airbnb/base",
+    "plugin:meteor/recommended"
+  ],
+  "settings": {
+    "import/resolver": "meteor"
+  },
+  "rules": {
+    "no-underscore-dangle": "off",
+    "meteor/eventmap-params": [
+      2,
+      {
+        "eventParamName": "event",
+        "templateInstanceParamName": "instance"
+      }
+    ],
+    "meteor/template-names": [
+      0
+    ],
+    "import/no-unresolved": [
+      2, { "ignore": ["^meteor/"] }
+    ]
+  }
+}

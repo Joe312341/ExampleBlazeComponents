@@ -12,8 +12,8 @@ Meteor.startup(() => {
         books: [
           'Harry Potter 1',
           'Harry Potter 2',
-          'Harry Potter 3'
-        ]
+          'Harry Potter 3',
+        ],
       },
       {
         name: 'Stephen King',
@@ -23,8 +23,8 @@ Meteor.startup(() => {
           'The Stand',
           'Carrie',
           'It',
-          'Misery'
-        ]
+          'Misery',
+        ],
       },
       {
         name: 'James Patterson',
@@ -32,8 +32,8 @@ Meteor.startup(() => {
         books: [
           'Private',
           'NYPD Red',
-          'I Funny'
-        ]
+          'I Funny',
+        ],
       },
       {
         name: 'George R. R. Martin',
@@ -41,8 +41,8 @@ Meteor.startup(() => {
         books: [
           'GoT 1',
           'GoT 2',
-          'GoT 3'
-        ]
+          'GoT 3',
+        ],
       },
       {
         name: 'Nora Roberts',
@@ -50,9 +50,9 @@ Meteor.startup(() => {
         books: [
           'Dark Witch',
           'Shadow Spell',
-          'The Witness'
-        ]
-      }
+          'The Witness',
+        ],
+      },
     ];
 
     let timestamp = (new Date()).getTime();
@@ -61,18 +61,17 @@ Meteor.startup(() => {
       const authorId = Authors.insert({
         name: author.name,
         birthDate: author.birthDate,
-        createdAt: new Date(timestamp)
-      })
+        createdAt: new Date(timestamp),
+      });
       timestamp += 1; // ensure unique timestamp
       author.books.forEach((book) => {
         Books.insert({
-          title:  book,
-          authorId: authorId,
-          createdAt: new Date(timestamp)
-        })
-      })
+          book,
+          authorId,
+          createdAt: new Date(timestamp),
+        });
+      });
       timestamp += 1; // ensure unique timestamp
-
-    })
+    });
   }
-})
+});

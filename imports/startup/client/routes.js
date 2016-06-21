@@ -5,8 +5,8 @@ import '/imports/ui/layouts/layout.js';
 import '/imports/ui/pages/home-page.js';
 
 FlowRouter.route('/', {
-  name: "home",
+  name: 'home',
   action() {
-    BlazeLayout.render('LayoutTmpl', {main: 'homePageTmpl'});
-  }
-})
+    BlazeLayout.render('LayoutTmpl', { main: 'homePageTmpl' });
+  },
+});

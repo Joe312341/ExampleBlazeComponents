@@ -1,4 +1,5 @@
-//gets called on startup
-Template.registerHelper('instance', function () {
+// gets called on startup
+/* eslint-disable */
+Template.registerHelper('instance', () => {
   return Template.instance();
 });

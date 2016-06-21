@@ -1,4 +1,4 @@
 import './layout.html';
 
-//components
+// components
 import '/imports/ui/components/navbar.js';
