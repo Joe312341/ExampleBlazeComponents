@@ -20,23 +20,33 @@ Template.homePageTmpl.onCreated(function homePageOnCreated() {
 
   // state is the object which is handed down to the blaze components
   // create a state for every high level component which you instantiate
-  this.authorState = {
+  this.authorState = new ReactiveVar();
+  this.authorStateObject = {
+    title: 'Authors',
     templateName: 'authorListItemTmpl',
     collectionName: Authors,
     placeHolderMessage: 'No Authors Available',
+    subscriptionName: 'allAuthors',
   };
-  this.bookState = {
+  this.authorState.set(this.authorStateObject);
+  this.bookState = new ReactiveVar();
+  this.bookStateObject = {
+    title: 'Books',
     templateName: 'booksListItemTmpl',
     collectionName: Books,
     placeHolderMessage: 'No Books Available',
+    subscriptionName: 'booksForAuthor',
   };
+  this.bookState.set(this.bookStateObject);
 });
 
 Template.homePageTmpl.helpers({
-  getAuthorId() {
+  // helper gets called when authorId , a reactive variable, is changed
+  adjustBookState() {
     const instance = Template.instance();
-    // console.log(instance.authorId.get());
-    instance.bookState.findRestriction = { authorId: instance.authorId.get() };
-    return instance.authorId.get();
+    instance.bookStateObject.findRestriction = { authorId: instance.authorId.get() };
+    instance.bookStateObject.subscriptionArguments = instance.authorId.get();
+    instance.bookState.set(instance.bookStateObject);
+    return;
   },
 });

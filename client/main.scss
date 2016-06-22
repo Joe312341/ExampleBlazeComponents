@@ -1,6 +1,10 @@
 @import "{}/node_modules/bootstrap/scss/bootstrap.scss";
 
 .fixed-height {
-  height:200px;
+  height:300px;
   overflow:auto;
+}
+
+.date-font-size {
+  font-size: 12px;
 }

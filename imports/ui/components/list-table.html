@@ -1,11 +1,16 @@
 <template name="listTableTmpl">
-  <div class="list-group fixed-height">
-  {{#if collection.count}}
-    {{#each collectionItem in collection}}
-      {{> template collectionItem = collectionItem}}
-    {{/each}}
-  {{ else }}
-    {{ instance.data.state.placeHolderMessage }}
-  {{ /if }}
+  <div class="card card-block">
+    <h4 class="card-title">{{ title }}</h4>
+    <div class="list-group fixed-height">
+    {{#if Template.subscriptionsReady}}
+      {{#if collection.count}}
+        {{#each collectionItem in collection}}
+          {{> template collectionItem = collectionItem}}
+        {{/each}}
+      {{ else }}
+        {{ placeHolderMessage }}
+      {{ /if }}
+    {{ /if }}
+    </div>
   </div>
 </template>
